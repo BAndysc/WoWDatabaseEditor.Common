@@ -60,7 +60,16 @@ namespace WDE.DbcStore
             switch (dbcSettingsProvider.GetSettings().DBCVersion)
             {
                 case DBCVersions.WOTLK_12340:
-                    return;
+                    {
+                        Load("Spell.dbc", 0, 136, SpellStore);
+                        Load("Achievement.dbc", 0, 4, AchievementStore);
+                        Load("AreaTable.dbc", 0, 11, AreaStore);
+                        Load("chrClasses.dbc", 0, 4, ClassStore);
+                        Load("chrRaces.dbc", 0, 14, RaceStore);
+                        Load("Emotes.dbc", 0, 1, EmoteStore);
+                        Load("SoundEntries.dbc", 0, 2, SoundStore);
+                        break;
+                    }
                 case DBCVersions.CATA_15595:
                     {
                         Load("Spell.dbc", 0, 21, SpellStore);
@@ -72,7 +81,7 @@ namespace WDE.DbcStore
                         Load("item-sparse.db2", 0, 99, ItemStore);
                         Load("Phase.dbc", 0, 1, PhaseStore);
                         Load("SoundEntries.dbc", 0, 2, SoundStore);
-                        break; ;
+                        break;
                     }
                 case DBCVersions.LEGION_26972:
                     {
